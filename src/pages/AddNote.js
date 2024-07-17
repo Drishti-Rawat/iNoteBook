@@ -44,9 +44,7 @@ const AddNotes = () => {
     else{
         dispatch(addNote({ title, description, tag }));
     }
-    navigate({
-        pathname: '/mynotes',
-      });
+    navigate('/mynotes');
   };
 
   return (

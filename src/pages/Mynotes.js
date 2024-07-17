@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useSelector ,useDispatch} from 'react-redux'
 import NoteCard from '../components/NoteCard'
-import { fetchNotes,deleteNote,updateNote } from '../store/NotesSlice'
+import { fetchNotes,deleteNote } from '../store/NotesSlice'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 
@@ -22,10 +22,10 @@ const Mynotes = () => {
     };
 
     const handleEdit = (note)=>{
-        navigate({
-            pathname: '/edit-note',
-            state: { note }
-          });
+        navigate(
+             '/edit-note',
+            {state: { note }}
+          );
     }
 
     console.log(notes)
@@ -38,9 +38,9 @@ const Mynotes = () => {
         return <div>Error: {error}</div>;
       }
   return (
-    <div className='overflow-hidden bg-slate-50 h-screen'>
+    <div className='overflow-hidden   '>
        
-    <div className='flex flex-shrink gap-10 flex-wrap py-10 px-14 '>
+    <div className='flex  gap-10 flex-wrap py-10 px-14 '>
 
         {
             notes ?(

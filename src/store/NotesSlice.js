@@ -1,23 +1,44 @@
 import { createSlice,createAsyncThunk  } from "@reduxjs/toolkit";
 
 const API_URL = 'http://localhost:5000/api/notes';
-const AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjY5NmEzZWFiMzAzOTk1MjgwNGQzZjI3In0sImlhdCI6MTcyMTE0ODM5NH0.velIhx1aY4nQERwJ9-g8jB0Sln_OwrcspOjBEbjEx7k"
 
-export const fetchNotes = createAsyncThunk('notes/fetchNotes', async () => {
-    const response = await fetch(`${API_URL}/fetchallnotes`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            'auth-token': AUTH_TOKEN
+// export const fetchNotes = createAsyncThunk('notes/fetchNotes', async () => {
+//     const response = await fetch(`${API_URL}/fetchallnotes`, {
+//         method: 'GET',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'auth-token': AUTH_TOKEN
+//         }
+//     });
+//     if (!response.ok) {
+//         throw new Error('Failed to fetch notes');
+//     }
+//     return response.json();
+// });
+
+export const fetchNotes = createAsyncThunk('notes/fetchNotes', async (_, { rejectWithValue }) => {
+    const AUTH_TOKEN = localStorage.getItem('token')
+    try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`${API_URL}/fetchallnotes`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'auth-token': token
+            }
+        });
+        if (!response.ok) {
+            const errorData = await response.json();
+            return rejectWithValue(errorData.error || 'Failed to fetch notes');
         }
-    });
-    if (!response.ok) {
-        throw new Error('Failed to fetch notes');
+        return response.json();
+    } catch (err) {
+        return rejectWithValue(err.message || 'An error occurred');
     }
-    return response.json();
 });
 
 export const addNote = createAsyncThunk('notes/addNote', async (note) => {
+    const AUTH_TOKEN = localStorage.getItem('token')
     const response = await fetch(`${API_URL}/addnote`, {
         method: 'POST',
         headers: {
@@ -33,6 +54,7 @@ export const addNote = createAsyncThunk('notes/addNote', async (note) => {
 });
 
 export const deleteNote = createAsyncThunk('notes/deleteNote', async (id) => {
+    const AUTH_TOKEN = localStorage.getItem('token')
     const response = await fetch(`${API_URL}/deletenote/${id}`, {
         method: 'DELETE',
         headers: {
@@ -47,6 +69,7 @@ export const deleteNote = createAsyncThunk('notes/deleteNote', async (id) => {
 });
 
 export const updateNote = createAsyncThunk('notes/updateNote', async ({ id, note }) => {
+    const AUTH_TOKEN = localStorage.getItem('token')
     const response = await fetch(`${API_URL}/updatenote/${id}`, {
         method: 'PUT',
         headers: {

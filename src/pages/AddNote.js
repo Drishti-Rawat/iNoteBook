@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addNote, updateNote } from "../store/NotesSlice";
 import { useLocation ,useNavigate} from "react-router-dom";
+import img from "../assets/cloud.png"
 
 const AddNotes = () => {
   const [title, setTitle] = useState("");
@@ -48,14 +49,18 @@ const AddNotes = () => {
   };
 
   return (
-    <div className="flex flex-col  gap-5 justify-center items-center mt-6 ">
-      <div className="py-4">
+    <section className="flex justify-center items-center py-6">
+    <div className="flex flex-col h-screen gap-6 justify-center items-center   ">
+      <div className="">
         <h2 className="text-3xl font-extrabold tracking-widest">
         {isEditMode ? "Edit Note" : "Add Note"}To the Cloud
         </h2>
       </div>
-      <form onSubmit={handleAddorUpdateNote}>
-        <div className="flex flex-col shadow-lg shadow-black   bg-[#44d2717c] gap-7 w-[500px] px-6 rounded-lg py-10 ">
+      <div className="flex justify-center items-center">
+
+
+<form onSubmit={handleAddorUpdateNote} className="px-5 bg-[#cee3f2] rounded-lg">
+        <div className="flex flex-col  gap-7 w-[500px] px-6  py-10  ">
           <div className="flex flex-col gap-3  ">
             <label
               htmlFor="title"
@@ -89,8 +94,8 @@ const AddNotes = () => {
               placeholder="description"
               value={description}
               className="rounded-md outline-none shadow-sm shadow-gray-400  px-2 py-1.5"
-              rows={5}
-              cols={35}
+              rows={10}
+              cols={10}
               type="text"
               name="description"
               id="description"
@@ -118,14 +123,17 @@ const AddNotes = () => {
           <div className="self-center">
             <button
               type="submit"
-              className="bg-slate-100 rounded-xl px-5 py-2 ring-1 ring-indigo-500-500 active:bg-red-200"
+              className="bg-white  rounded-lg px-5 py-2  active:bg-[#6495ba] "
             >
              {isEditMode ? "Update Note" : "Add Note"}
             </button>
           </div>
         </div>
       </form>
+      </div>
+      
     </div>
+    </section>
   );
 };
 

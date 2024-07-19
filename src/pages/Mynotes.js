@@ -51,7 +51,7 @@ const Mynotes = () => {
 
         <h2 className='text-3xl font-bold underline underline-offset-8 decoration-blue-400'>Active Notes </h2>
        
-    <div className='flex  flex-col md:flex-row gap-10 justify-start items-center flex-wrap py-10 px-3 md:px-14 '>
+    <div className='grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 py-10 px-3 md:px-14 '>
 
         {
             notes ?(

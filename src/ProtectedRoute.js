@@ -9,6 +9,9 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/login" replace />;
   }
 
+  if(token){
+    return <Navigate to="/mynotes" replace />;
+  }
   return children;
 };
 

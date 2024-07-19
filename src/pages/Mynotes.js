@@ -47,11 +47,21 @@ const Mynotes = () => {
         return <div>Error: {error}</div>;
       }
   return (
-    <div className='overflow-hidden  flex  flex-col px-2 md:px-6 py-10  min-h-screen  '>
+    <div className='overflow-hidden  flex  flex-col justify-start items-start px-2 md:px-6 py-10  min-h-screen  '>
 
         <h2 className='text-3xl font-bold underline underline-offset-8 decoration-blue-400'>Active Notes </h2>
        
-    <div className='grid gap-3 justify-start items-center  lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 py-10 px-3 md:px-14 '>
+    <div className='flex flex-col sm:flex-row   flex-wrap gap-10 justify-center  items-center py-10 px-6 md:px-20 '>
+
+    <div>
+            <div onClick={handleAdd} className=' cursor-pointer w-52 sm:w-80 h-[215px] hover:bg-slate-100 flex justify-center items-center rounded-lg shadow-lg bg-gray-100'>
+                <div className='items-center'>
+                    
+                    <Pen  size={30}/>
+
+                </div>
+            </div>
+        </div>
 
         {
             notes ?(
@@ -63,15 +73,7 @@ const Mynotes = () => {
             )
         }
 
-        <div>
-            <div onClick={handleAdd} className=' cursor-pointer w-52 sm:w-80 h-[215px] hover:bg-slate-100 flex justify-center items-center rounded-lg shadow-lg bg-gray-100'>
-                <div className='items-center'>
-                    
-                    <Pen  size={30}/>
-
-                </div>
-            </div>
-        </div>
+       
 
 
       

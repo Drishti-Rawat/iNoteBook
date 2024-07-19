@@ -49,10 +49,10 @@ const AddNotes = () => {
   };
 
   return (
-    <section className="flex justify-center items-center py-6">
-    <div className="flex flex-col h-screen gap-6 justify-center items-center   ">
+    <section className="flex justify-center items-center py-6 ">
+    <div className="flex flex-col h-screen gap-6 justify-center items-center px-7   ">
       <div className="">
-        <h2 className="text-3xl font-extrabold tracking-widest">
+        <h2 className=" text-2xl md:text-3xl font-extrabold tracking-widest">
         {isEditMode ? "Edit Note" : "Add Note"}To the Cloud
         </h2>
       </div>
@@ -60,7 +60,7 @@ const AddNotes = () => {
 
 
 <form onSubmit={handleAddorUpdateNote} className="px-5 bg-[#cee3f2] rounded-lg">
-        <div className="flex flex-col  gap-7 w-[500px] px-6  py-10  ">
+        <div className="flex flex-col  gap-7  w-[320px] sm:w-[500px] px-3 sm:px-6  py-10  ">
           <div className="flex flex-col gap-3  ">
             <label
               htmlFor="title"

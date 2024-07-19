@@ -22,9 +22,9 @@ const NoteCard = ({note,handledelete,handleEdit}) => {
     <>
     <section className='relative'>
     <h2 className='text-[12px] absolute top-2  z-20 right-2 font-semibold  rounded-3xl bg-red-400 px-3 py-1.5'>{note.tag}</h2>
-    <div onClick={handleToggle} className="w-80 rounded z-10 bg-slate-50 overflow-hidden shadow-lg cursor-pointer">
+    <div onClick={handleToggle} className="sm:w-80 w-52  rounded z-10 bg-slate-50 overflow-hidden shadow-lg cursor-pointer">
         <div  className='relative'> 
-    <img className="w-full h-44 object-cover opacity-50 " src={bgimg} alt="hey" />
+    <img className="w-full h-36 sm:h-44 object-cover opacity-50 " src={bgimg} alt="hey" />
 <div className='absolute top-[40%] right-[45%] '>
 
     <Lock size={40}/>

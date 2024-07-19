@@ -17,7 +17,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/iNotebook/" element={<Home />} />
        
         <Route path="/addnote" element={<ProtectedRoute><AddNote /></ProtectedRoute> }/>
         <Route path="/mynotes" element={

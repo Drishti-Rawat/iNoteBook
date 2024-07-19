@@ -47,9 +47,11 @@ const Mynotes = () => {
         return <div>Error: {error}</div>;
       }
   return (
-    <div className='overflow-hidden  h-screen  '>
+    <div className='overflow-hidden  flex  flex-col px-2 md:px-6 py-10  min-h-screen  '>
+
+        <h2 className='text-3xl font-bold underline underline-offset-8 decoration-blue-400'>Active Notes </h2>
        
-    <div className='flex  gap-10 flex-wrap py-10 px-14 '>
+    <div className='flex  flex-col md:flex-row gap-10 justify-start items-center flex-wrap py-10 px-3 md:px-14 '>
 
         {
             notes ?(
@@ -62,7 +64,7 @@ const Mynotes = () => {
         }
 
         <div>
-            <div onClick={handleAdd} className=' cursor-pointer w-80 h-[215px] hover:bg-slate-100 flex justify-center items-center rounded-lg shadow-lg bg-gray-100'>
+            <div onClick={handleAdd} className=' cursor-pointer w-52 sm:w-80 h-[215px] hover:bg-slate-100 flex justify-center items-center rounded-lg shadow-lg bg-gray-100'>
                 <div className='items-center'>
                     
                     <Pen  size={30}/>

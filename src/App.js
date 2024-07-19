@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+
 
 import AddNote from "./pages/AddNote";
 import Mynotes from "./pages/Mynotes";
@@ -9,6 +9,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUp from "./pages/SignUp";
 import ProtectedRoute from "./ProtectedRoute";
 import Footer from "./components/Footer";
+import Homepage from "./pages/Homepage";
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Homepage />} />
        
         <Route path="/addnote" element={<ProtectedRoute><AddNote /></ProtectedRoute> }/>
         <Route path="/mynotes" element={
